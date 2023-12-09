@@ -1,8 +1,8 @@
 {
   "type": "module",
-  "name": "soundify-node-server-app",
+  "name": "animelist-node-server-app",
   "version": "1.0.0",
-  "description": "Node.js HTTP Web server for the soundify application",
+  "description": "Node.js HTTP Web server for the animelist application",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -23,10 +23,10 @@
   "author": "Nicholas Byrne",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/nicholasb4711/soundify-node-server-app/issues"
+    "url": "https://github.com/nicholasb4711/animelist-node-server-app/issues"
   },
   
-  "homepage": "https://github.com/nicholasb4711/soundify-node-server-app#readme",
+  "homepage": "https://github.com/nicholasb4711/animelist-node-server-app#readme",
   "dependencies": {
     "express": "^4.18.2"
   }
