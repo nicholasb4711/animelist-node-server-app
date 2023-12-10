@@ -6,6 +6,7 @@ mongoose.connect("mongodb://127.0.0.1:27017/animelist");
 import Hello from "./hello.js"
 
 const app = express()
+
 UserRoutes(app);
 Hello(app)
 
