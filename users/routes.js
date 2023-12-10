@@ -29,7 +29,7 @@ function UserRoutes(app) {
   };
 
   const signout = (req, res) => { };
-  const account = async (req, res) => { };
+  
   app.post("/api/users/account", account);
   app.post("/api/users", createUser);
   app.get("/api/users", findAllUsers);
