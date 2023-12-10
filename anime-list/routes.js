@@ -8,6 +8,7 @@ function animeRoutes(app) {
     const anime = await dao.findAllAnime();
     res.json(anime);
   };
+  
   const findUserById = async (req, res) => {
     const id = req.params.userId;
     const user = await dao.findUserById(id);
@@ -29,7 +30,7 @@ function animeRoutes(app) {
   const signout = (req, res) => { };
   const account = async (req, res) => { };
   app.post("/api/anime", createAnime);
-  app.get("/api/anime", findAllAnime);
+  app.get("/api/allanime", findAllAnime);
   app.get("/api/users/:userId", findUserById);
   app.get("/api/users/username/:username", findUserByUsername);
   app.put("/api/users/:userId", updateUser);
@@ -39,4 +40,4 @@ function animeRoutes(app) {
   app.post("/api/users/signout", signout);
   app.post("/api/users/account", account);
 }
-export default UserRoutes;
+export default AnimeRoutes;
