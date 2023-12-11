@@ -26,7 +26,7 @@ function animeRoutes(app) {
   app.post("/api/anime", createAnime);
   app.get("/api/anime", findAllAnime);
   app.get("/api/anime/:aniId", findAnimeById);
-  app.get("/api/anime/:title", findByTitle);
+  app.get("/api/anime/title/:title", findByTitle);
   app.get("/api/anime/:ranked", findAnimeByRank);
 }
 export default animeRoutes;
