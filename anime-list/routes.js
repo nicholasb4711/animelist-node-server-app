@@ -13,7 +13,7 @@ function animeRoutes(app) {
     const anime = await dao.findAnimeById(id);
     res.json(anime);
   };
-  const findAnimeByTitle = async (req, res) => {
+  const findByTitle = async (req, res) => {
     const title = req.params.title;
     const anime = await dao.findAnimeByTitle(title);
     res.json(anime);
@@ -26,7 +26,7 @@ function animeRoutes(app) {
   app.post("/api/anime", createAnime);
   app.get("/api/anime", findAllAnime);
   app.get("/api/anime/:aniId", findAnimeById);
-  app.get("/api/anime/:title", findAnimeByTitle);
+  app.get("/api/anime/:title", findByTitle);
   app.get("/api/anime/:ranked", findAnimeByRank);
 }
 export default animeRoutes;
