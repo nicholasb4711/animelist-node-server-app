@@ -3,7 +3,10 @@ import * as dao from "./dao.js";
 let currentUser = null;
 
 function UserRoutes(app) {
-  const createUser = async (req, res) => { };
+  const createUser = async (req, res) => {
+    const user = await dao.createUser(req.body);
+    res.json(user);
+}
   const deleteUser = async (req, res) => { 
     const id = req.params.id;
     const status = await dao.deleteUser(id);
@@ -36,7 +39,18 @@ function UserRoutes(app) {
     const status = await dao.updateUser(id, newUser);
     res.json(status);
    };
-  const signup = async (req, res) => { };
+   const signup = async (req, res) => {
+    const user = await dao.findUserByUsername(
+      req.body.username);
+    if (user) {
+      res.status(400).json(
+        { message: "Username already taken" });
+      return;
+    }
+    currentUser = await dao.createUser(req.body);
+    res.json(currentUser);
+  };
+;
 
   const signin = async (req, res) => {
     const { username, password } = req.body;
