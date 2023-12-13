@@ -2,7 +2,7 @@ import model from "./model.js";
 
 export const createAnime = (title) => model.create(title);
 export const findAllAnime = () => model.find();
-export const findAnimeById = (animeId) => model.find({uid: animeId});
+export const findAnimeById = (animeId) => model.findOne({uid: animeId});
 export const findAnimeByTitle = (title) =>
   model.find({ title: title });
   export const findAnimeByGenre = (genre) =>

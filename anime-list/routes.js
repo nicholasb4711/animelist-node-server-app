@@ -9,23 +9,14 @@ function animeRoutes(app) {
     res.json(anime);
   };
   const findAnimeById = async (req, res) => {
-    const id = req.params.aniId;
+    const id = req.params.uid;
     const anime = await dao.findAnimeById(id);
     res.json(anime);
   };
   const findByTitle = async (req, res) => {
-    try {
-      const title = req.params.title;
-      if (!title.trim()) {
-        return res.status(400).json({ message: 'Invalid search query' });
-      }
-      const anime = await dao.findAnimeByTitle(title);
-      res.json(anime);
-  
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ message: 'Internal server error' });
-    }
+    const title = req.params.title;
+    const anime = await dao.findAnimeByTitle(title);
+    res.json(anime);
   }
   const findAnimeByRank = async (req, res) => {
     const rank = req.params.raked;
@@ -34,7 +25,7 @@ function animeRoutes(app) {
   };
   app.post("/api/anime", createAnime);
   app.get("/api/anime", findAllAnime);
-  app.get("/api/anime/:aniId", findAnimeById);
+  app.get("/api/anime/:uid", findAnimeById);
   app.get("/api/anime/title/:title", findByTitle);
   app.get("/api/anime/:ranked", findAnimeByRank);
 }

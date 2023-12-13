@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 const anime_listSchema = new mongoose.Schema({
     uid: { type: Number, required: true, unique: true },
-    title: { type: String, required: true },
+    title: { type: String, required: true},
     synopsis: { type: String, required: true },
     genre: { type: String, required: true },
     aired: { type: Date, required: true },
