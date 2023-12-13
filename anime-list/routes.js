@@ -14,9 +14,27 @@ function animeRoutes(app) {
     res.json(anime);
   };
   const findByTitle = async (req, res) => {
+<<<<<<< Updated upstream
     const title = req.params.title;
     const anime = await dao.findAnimeByTitle(title);
     res.json(anime);
+=======
+    try {
+      const title = req.params.title;
+      const anime = await dao.findAnimeByTitle(title);
+
+      if (!title || title.trim() === '') {
+        return res.status(400).json({ message: "Search term is required" });
+      }
+      res.json(anime);
+
+      // ... existing search logic
+    } catch (error) {
+      res.status(500).send(error.message);
+    }
+
+
+>>>>>>> Stashed changes
   }
   const findAnimeByRank = async (req, res) => {
     const rank = req.params.raked;
