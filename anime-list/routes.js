@@ -14,9 +14,18 @@ function animeRoutes(app) {
     res.json(anime);
   };
   const findByTitle = async (req, res) => {
-    const title = req.params.title;
-    const anime = await dao.findAnimeByTitle(title);
-    res.json(anime);
+    try {
+      const title = req.params.title;
+      if (!title.trim()) {
+        return res.status(400).json({ message: 'Invalid search query' });
+      }
+      const anime = await dao.findAnimeByTitle(title);
+      res.json(anime);
+  
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Internal server error' });
+    }
   }
   const findAnimeByRank = async (req, res) => {
     const rank = req.params.raked;
