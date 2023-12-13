@@ -14,11 +14,6 @@ function animeRoutes(app) {
     res.json(anime);
   };
   const findByTitle = async (req, res) => {
-<<<<<<< Updated upstream
-    const title = req.params.title;
-    const anime = await dao.findAnimeByTitle(title);
-    res.json(anime);
-=======
     try {
       const title = req.params.title;
       const anime = await dao.findAnimeByTitle(title);
@@ -34,7 +29,6 @@ function animeRoutes(app) {
     }
 
 
->>>>>>> Stashed changes
   }
   const findAnimeByRank = async (req, res) => {
     const rank = req.params.raked;

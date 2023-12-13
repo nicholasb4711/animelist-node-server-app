@@ -10,7 +10,7 @@ const userSchema = new mongoose.Schema(
         role: {
             type: String,       // String field
 
-            enum: ["STUDENT", "FACULTY", "ADMIN", "USER"],      // allowed string values
+            enum: ["STUDENT", "FACULTY", "ADMIN", "USER", "GUEST"],      // allowed string values
 
             default: "USER"         // default value if not provided
         },
