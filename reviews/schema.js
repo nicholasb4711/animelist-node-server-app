@@ -10,6 +10,10 @@ const reviewSchema = new mongoose.Schema(
             type: mongoose.Schema.Types.ObjectId,  // Using the anime UID as it is a number in your data
             required: true
         },
+        Autor: {
+            type: String,  // Using the anime UID as it is a number in your data
+            required: true
+        },
         reviewText: {
             type: String,
             required: true
