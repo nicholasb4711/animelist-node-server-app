@@ -1,4 +1,5 @@
 import express from 'express';
+import "dotenv/config";
 import session from "express-session";
 import cors from 'cors';
 import mongoose from "mongoose";
@@ -17,5 +18,5 @@ UserRoutes(app);
 animeRoutes(app);
 Hello(app)
 
-app.listen(4000)
-
+// app.listen(4000)
+app.listen(process.env.PORT || 4000);
