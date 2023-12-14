@@ -7,7 +7,7 @@ const reviewSchema = new mongoose.Schema(
             ref: 'User'  // Assuming your User model is named 'User'
         },
         animeId: {
-            type: Number,  // Using the anime UID as it is a number in your data
+            type: mongoose.Schema.Types.ObjectId,  // Using the anime UID as it is a number in your data
             required: true
         },
         reviewText: {
@@ -17,7 +17,7 @@ const reviewSchema = new mongoose.Schema(
         rating: {
             type: Number,  // Optional: You might want to allow users to rate the anime
             min: 1,
-            max: 5
+            max: 10
         },
         createdAt: {
             type: Date,

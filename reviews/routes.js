@@ -8,6 +8,10 @@ function ReviewRoutes(app) {
     const review = await dao.createReview(req.body);
     res.json(review);
   }
+  const postReview = async (req, res) => {
+    currentUser = await dao.createReview(req.body);
+    res.json(currentUser);
+  };
   const deleteReview = async (req, res) => {
     const id = req.params.id;
     const status = await dao.deleteReview(id);
@@ -41,6 +45,7 @@ function ReviewRoutes(app) {
 
 
   app.post("/api/reviews", createReview);
+  app.post("/api/reviews/postReview", postReview);
   app.get("/api/reviews", findAllReviews);
   app.get("/api/reviews/:reviewId", findReviewById);
   app.get("/api/reviews/anime/:animeId", findReviewsByAnimeId);
