@@ -35,10 +35,25 @@ function animeRoutes(app) {
     const anime = await dao.findAnimeById(rank);
     res.json(anime);
   };
+const uploadAnimeImage = async (req, res) => {
+    const file = req.file;
+    const anime = await dao.uploadAnimeImage(file);
+    res.json(anime);
+  };
+
+  const updateAnime = async (req, res) => {
+    const id = req.params.id;
+    const newAnime = req.body;
+    const status = await dao.updateAnime(id, newAnime);
+    res.json(status);
+   };
+
+  app.post("/api/anime/upload", uploadAnimeImage);
   app.post("/api/anime", createAnime);
   app.get("/api/anime", findAllAnime);
   app.get("/api/anime/:uid", findAnimeById);
   app.get("/api/anime/title/:title", findByTitle);
   app.get("/api/anime/:ranked", findAnimeByRank);
+  app.put("/api/anime/:id", updateAnime);
 }
 export default animeRoutes;
