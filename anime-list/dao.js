@@ -12,3 +12,6 @@ export const findAnimeByTitle = (title) =>
 //   model.updateOne({ _id: userId }, { $set: user });
 
   export const deleteAnime = (animeId) => model.deleteOne({ uid: animeId });
+
+  export const updateAnime = (animeId, anime) =>
+  model.updateOne({ _id: animeId }, { $set: anime });
