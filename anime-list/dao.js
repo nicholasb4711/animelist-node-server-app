@@ -3,8 +3,12 @@ import model from "./model.js";
 export const createAnime = (title) => model.create(title);
 export const findAllAnime = () => model.find();
 export const findAnimeById = (animeId) => model.findOne({uid: animeId});
-export const findAnimeByTitle = (title) =>
-  model.find({ title: title });
+export const findAnimeByTitle = async (term) => {
+  return model.find({ title: { $regex: new RegExp(term, 'i') } });
+};
+
+
+
   export const findAnimeByGenre = (genre) =>
   model.find({ genre: genre });
 
